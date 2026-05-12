@@ -5,12 +5,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, debounceTime, filter, map, merge, startWith, switchMap, take } from 'rxjs';
 import { of, Subject } from 'rxjs';
 
 import { User, UsersService } from '@lista-usuarios/data-access-users';
 import { UserFormComponent } from '../user-form/user-form.component';
+
+const AVATAR_COLORS = [
+  '#1976d2', '#388e3c', '#f57c00', '#7b1fa2',
+  '#c62828', '#00838f', '#ad1457', '#1565c0', '#2e7d32',
+];
 
 @Component({
   selector: 'app-users-list',
@@ -21,6 +27,7 @@ import { UserFormComponent } from '../user-form/user-form.component';
     MatIconModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
   ],
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss',
@@ -56,6 +63,18 @@ export class UsersListComponent {
       this.users.set(users);
       this.loading.set(false);
     });
+  }
+
+  getInitials(name: string): string {
+    return name.split(' ').slice(0, 2).map(n => n[0]).join('').toUpperCase();
+  }
+
+  getAvatarColor(name: string): string {
+    return AVATAR_COLORS[name.charCodeAt(0) % AVATAR_COLORS.length];
+  }
+
+  clearSearch(): void {
+    this.searchControl.setValue('');
   }
 
   openAddModal(): void {

@@ -1,4 +1,5 @@
 <div class="layout">
+
   <mat-toolbar class="toolbar">
     <button mat-icon-button aria-label="Menu">
       <mat-icon>menu</mat-icon>
@@ -14,37 +15,61 @@
         placeholder="Pesquisar..."
         aria-label="Pesquisar usuários"
       />
+      @if (searchControl.value) {
+        <button class="clear-btn" (click)="clearSearch()" aria-label="Limpar busca">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
     </div>
 
     <span class="flex-spacer"></span>
   </mat-toolbar>
 
   <main class="content">
-    <p class="section-label">Usuários cadastrados</p>
 
     @if (loading()) {
       <div class="state-container">
-        <mat-spinner diameter="40" />
+        <mat-spinner diameter="36" />
       </div>
     } @else if (error()) {
-      <div class="state-container error-msg">
+      <div class="state-container error-state">
         <mat-icon>error_outline</mat-icon>
         <span>{{ error() }}</span>
       </div>
     } @else if (users().length === 0) {
-      <div class="state-container">
-        <span>Nenhum usuário encontrado.</span>
+      <div class="state-container empty-state">
+        <mat-icon>people_outline</mat-icon>
+        @if (searchControl.value) {
+          <span>Nenhum resultado para "<strong>{{ searchControl.value }}</strong>"</span>
+        } @else {
+          <span>Nenhum usuário cadastrado ainda.</span>
+        }
       </div>
     } @else {
+      <p class="section-label">
+        {{ users().length }} {{ users().length === 1 ? 'usuário cadastrado' : 'usuários cadastrados' }}
+      </p>
+
       <div class="user-list">
         @for (user of users(); track user.id) {
           <div class="user-row">
-            <mat-icon class="avatar-icon">account_circle</mat-icon>
-            <span class="user-name">{{ user.name }}</span>
-            <span class="user-email">{{ user.email }}</span>
+            <div
+              class="avatar"
+              [style.background-color]="getAvatarColor(user.name)"
+              aria-hidden="true"
+            >
+              {{ getInitials(user.name) }}
+            </div>
+
+            <div class="user-info">
+              <span class="user-name">{{ user.name }}</span>
+              <span class="user-email">{{ user.email }}</span>
+            </div>
+
             <button
               mat-icon-button
               class="edit-btn"
+              matTooltip="Editar usuário"
               aria-label="Editar usuário"
               (click)="openEditModal(user)"
             >
@@ -54,9 +79,11 @@
         }
       </div>
     }
+
   </main>
 
-  <button mat-fab class="fab" aria-label="Adicionar usuário" (click)="openAddModal()">
+  <button mat-fab class="fab" matTooltip="Adicionar usuário" aria-label="Adicionar usuário" (click)="openAddModal()">
     <mat-icon>add</mat-icon>
   </button>
+
 </div>

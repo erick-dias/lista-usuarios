@@ -3,8 +3,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
 import { NgxMaskDirective } from 'ngx-mask';
 
 import { User, cpfValidator, phoneValidator } from '@lista-usuarios/data-access-users';
@@ -21,8 +22,9 @@ export interface UserFormData {
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule,
     MatButtonModule,
+    MatButtonToggleModule,
+    MatIconModule,
     NgxMaskDirective,
   ],
   templateUrl: './user-form.component.html',
@@ -35,12 +37,12 @@ export class UserFormComponent {
   readonly isEdit = !!this.data?.user;
 
   readonly form = new FormGroup({
-    email: new FormControl('', {
-      validators: [Validators.required, Validators.email],
-      nonNullable: true,
-    }),
     name: new FormControl('', {
       validators: [Validators.required],
+      nonNullable: true,
+    }),
+    email: new FormControl('', {
+      validators: [Validators.required, Validators.email],
       nonNullable: true,
     }),
     cpf: new FormControl('', {

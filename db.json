@@ -47,6 +47,14 @@
       "cpf": "451.890.234-35",
       "phone": "(61) 3222-0006",
       "phoneType": "landline"
+    },
+    {
+      "email": "teste@gmail.com",
+      "name": "teste",
+      "cpf": "125.251.545-45",
+      "phone": "(71) 91215-5555",
+      "phoneType": "mobile",
+      "id": "b44YwfsjnI0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
