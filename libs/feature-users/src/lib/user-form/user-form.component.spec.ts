@@ -4,7 +4,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideNgxMask } from 'ngx-mask';
 
 import { UserFormComponent } from './user-form.component';
-import { User } from '../../../core/models/user.model';
+import { User } from '@lista-usuarios/data-access-users';
 
 const dialogRefMock = { close: vi.fn() };
 

@@ -9,8 +9,6 @@ export const routes: Routes = [
   {
     path: 'users',
     loadComponent: () =>
-      import('./features/users/users-list/users-list.component').then(
-        m => m.UsersListComponent
-      ),
+      import('@lista-usuarios/feature-users').then(m => m.UsersListComponent),
   },
 ];

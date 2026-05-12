@@ -7,9 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxMaskDirective } from 'ngx-mask';
 
-import { User } from '../../../core/models/user.model';
-import { cpfValidator } from '../../../core/validators/cpf.validator';
-import { phoneValidator } from '../../../core/validators/phone.validator';
+import { User, cpfValidator, phoneValidator } from '@lista-usuarios/data-access-users';
 
 export interface UserFormData {
   user?: User;

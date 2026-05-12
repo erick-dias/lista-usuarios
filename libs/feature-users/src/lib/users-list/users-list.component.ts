@@ -9,8 +9,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, debounceTime, filter, map, merge, startWith, switchMap, take } from 'rxjs';
 import { of, Subject } from 'rxjs';
 
-import { UsersService } from '../../../core/services/users.service';
-import { User } from '../../../core/models/user.model';
+import { User, UsersService } from '@lista-usuarios/data-access-users';
 import { UserFormComponent } from '../user-form/user-form.component';
 
 @Component({

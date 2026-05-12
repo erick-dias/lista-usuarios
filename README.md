@@ -131,14 +131,14 @@ npm run build
     └── shared/
 ```
 
-### etapa 1:
+### Etapa 1:
 
 Construição as telas conforme no documento
 
-### etapa 2:
+### Etapa 2:
 
 Garantir 100% da funionalidade do sistema
 
-## etapa 3:
+## Etapa 3:
 
 Melhorar o ui/ux da telas para alto nivel

@@ -1,0 +1,15 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve",
+    "skipLibCheck": true,
+    "paths": {
+      "@lista-usuarios/data-access-users": ["./libs/data-access-users/src/index.ts"],
+      "@lista-usuarios/feature-users": ["./libs/feature-users/src/index.ts"],
+      "@lista-usuarios/ui": ["./libs/ui/src/index.ts"]
+    }
+  }
+}
