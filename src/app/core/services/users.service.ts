@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, map, catchError } from 'rxjs/operators';
+import { delay, catchError } from 'rxjs/operators';
 import { User } from '../models/user.model';
 
-const MOCK_USERS: User[] = [
+const INITIAL_USERS: User[] = [
   {
     id: 1,
     name: 'Giana Sandrini',
@@ -56,19 +56,32 @@ const MOCK_USERS: User[] = [
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
+  private users: User[] = [...INITIAL_USERS];
+  private nextId = INITIAL_USERS.length + 1;
+
   search(term: string): Observable<User[]> {
-    return of(MOCK_USERS).pipe(
+    const filtered = term.trim()
+      ? this.users.filter(u => u.name.toLowerCase().includes(term.toLowerCase()))
+      : [...this.users];
+
+    return of(filtered).pipe(
       delay(500),
-      map(users =>
-        term.trim()
-          ? users.filter(u => u.name.toLowerCase().includes(term.toLowerCase()))
-          : users
-      ),
       catchError(() => throwError(() => new Error('Erro ao carregar usuários')))
     );
   }
 
   getById(id: number): Observable<User | undefined> {
-    return of(MOCK_USERS.find(u => u.id === id)).pipe(delay(200));
+    return of(this.users.find(u => u.id === id)).pipe(delay(200));
+  }
+
+  add(data: Omit<User, 'id'>): Observable<User> {
+    const newUser: User = { ...data, id: this.nextId++ };
+    this.users = [...this.users, newUser];
+    return of(newUser).pipe(delay(300));
+  }
+
+  update(updated: User): Observable<User> {
+    this.users = this.users.map(u => (u.id === updated.id ? updated : u));
+    return of(updated).pipe(delay(300));
   }
 }

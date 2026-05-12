@@ -59,12 +59,3 @@ src/
 │   └── shared/         # Componentes e pipes reutilizáveis
 └── styles.scss
 ```
-
-## Funcionalidades
-
-- Listagem de usuários em cards com nome e e-mail
-- Filtro por nome com debounce de 300ms
-- Estado de loading e mensagem de erro
-- Modal de criação e edição de usuário
-- Formulário reativo com validações (e-mail, CPF, telefone)
-- Dados mockados via array estático em serviço

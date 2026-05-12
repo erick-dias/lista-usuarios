@@ -1,0 +1,65 @@
+h2[mat-dialog-title] {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #212121;
+  margin-bottom: 8px;
+}
+
+mat-dialog-content {
+  padding-top: 8px !important;
+  overflow: visible;
+}
+
+// Remove fill background — exibe apenas o underline
+::ng-deep .user-form {
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent;
+  }
+  .mdc-text-field--filled:not(.mdc-text-field--disabled):hover {
+    background-color: transparent;
+  }
+  .mdc-text-field--filled.mdc-text-field--focused {
+    background-color: transparent;
+  }
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 460px;
+}
+
+.field-full {
+  width: 100%;
+}
+
+.field-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.field-cpf {
+  flex: 3;
+}
+
+.field-phone {
+  flex: 4;
+}
+
+.field-phone-type {
+  flex: 3;
+}
+
+.info-text {
+  font-size: 0.8rem;
+  color: #1565c0;
+  margin: 8px 0 0;
+  line-height: 1.4;
+}
+
+mat-dialog-actions {
+  padding: 8px 0 4px;
+  justify-content: flex-start;
+}
