@@ -1,60 +1,70 @@
-# ListaUsuarios
+# Lista de Usuários
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.8.
+Aplicação Angular para listagem e gerenciamento de usuários, desenvolvida como teste técnico.
 
-## Development server
+## Stack
 
-To start a local development server, run:
+- **Angular 21** (standalone components)
+- **Angular Material** — componentes de UI
+- **Signals** — gerenciamento de estado reativo
+- **RxJS** — operadores assíncronos (switchMap, debounceTime, catchError, forkJoin)
+- **Vitest** — testes unitários
 
-```bash
-npm i
-ng serve
-```
+## Pré-requisitos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Node.js 18+
+- npm 9+
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalação
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
-
-To build the project run:
+## Executando o projeto
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Acesse [http://localhost:4200](http://localhost:4200)
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Testes
 
 ```bash
-ng test
+# Executar uma vez
+npm test
+
+# Modo watch
+npm run test:watch
+
+# Com relatório de cobertura (mínimo 60%)
+npm run test:coverage
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+## Build de produção
 
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Estrutura do projeto
 
-## Additional Resources
+```
+src/
+├── app/
+│   ├── core/           # Serviços, modelos e guards globais
+│   ├── features/
+│   │   └── users/      # Feature de usuários (listagem + modal)
+│   └── shared/         # Componentes e pipes reutilizáveis
+└── styles.scss
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Funcionalidades
+
+- Listagem de usuários em cards com nome e e-mail
+- Filtro por nome com debounce de 300ms
+- Estado de loading e mensagem de erro
+- Modal de criação e edição de usuário
+- Formulário reativo com validações (e-mail, CPF, telefone)
+- Dados mockados via array estático em serviço
