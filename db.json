@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Giana Sandrini",
       "email": "giana@attoratus.com.br",
       "cpf": "123.456.789-00",
@@ -9,7 +9,7 @@
       "phoneType": "mobile"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Carlos Mendes",
       "email": "carlos.mendes@empresa.com.br",
       "cpf": "987.654.321-11",
@@ -17,7 +17,7 @@
       "phoneType": "mobile"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Fernanda Oliveira",
       "email": "fernanda.oliveira@email.com",
       "cpf": "456.789.123-22",
@@ -25,7 +25,7 @@
       "phoneType": "landline"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Rafael Souza",
       "email": "rafael.souza@teste.com.br",
       "cpf": "321.654.987-33",
@@ -33,7 +33,7 @@
       "phoneType": "mobile"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Mariana Costa",
       "email": "mariana.costa@dominio.com",
       "cpf": "654.321.098-44",
@@ -41,12 +41,13 @@
       "phoneType": "mobile"
     },
     {
-      "id": 6,
-      "name": "Bruno Almeida",
+      "id": "6",
+      "name": "Erick dias",
       "email": "bruno.almeida@corp.com.br",
       "cpf": "789.012.345-55",
       "phone": "(61) 3222-0006",
       "phoneType": "landline"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

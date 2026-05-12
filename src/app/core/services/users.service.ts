@@ -20,7 +20,7 @@ export class UsersService {
     );
   }
 
-  getById(id: number): Observable<User> {
+  getById(id: string): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/${id}`).pipe(
       catchError(() => throwError(() => new Error('Usuário não encontrado')))
     );
