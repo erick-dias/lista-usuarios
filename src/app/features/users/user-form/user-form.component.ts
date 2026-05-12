@@ -5,8 +5,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { NgxMaskDirective } from 'ngx-mask';
 
 import { User } from '../../../core/models/user.model';
+import { cpfValidator } from '../../../core/validators/cpf.validator';
+import { phoneValidator } from '../../../core/validators/phone.validator';
 
 export interface UserFormData {
   user?: User;
@@ -22,6 +25,7 @@ export interface UserFormData {
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    NgxMaskDirective,
   ],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.scss',
@@ -42,11 +46,11 @@ export class UserFormComponent {
       nonNullable: true,
     }),
     cpf: new FormControl('', {
-      validators: [Validators.required],
+      validators: [Validators.required, cpfValidator],
       nonNullable: true,
     }),
     phone: new FormControl('', {
-      validators: [Validators.required],
+      validators: [Validators.required, phoneValidator],
       nonNullable: true,
     }),
     phoneType: new FormControl<'mobile' | 'landline'>('mobile', {
@@ -54,6 +58,12 @@ export class UserFormComponent {
       nonNullable: true,
     }),
   });
+
+  get phoneMask(): string {
+    return this.form.controls.phoneType.value === 'mobile'
+      ? '(00) 00000-0000'
+      : '(00) 0000-0000';
+  }
 
   constructor() {
     if (this.data?.user) {

@@ -26,17 +26,37 @@
     <div class="field-row">
       <mat-form-field appearance="fill" class="field-cpf">
         <mat-label>CPF</mat-label>
-        <input matInput formControlName="cpf" />
-        @if (form.controls.cpf.touched && form.controls.cpf.hasError('required')) {
-          <mat-error>CPF é obrigatório</mat-error>
+        <input
+          matInput
+          formControlName="cpf"
+          mask="000.000.000-00"
+          [dropSpecialCharacters]="false"
+          placeholder="000.000.000-00"
+        />
+        @if (form.controls.cpf.touched) {
+          @if (form.controls.cpf.hasError('required')) {
+            <mat-error>CPF é obrigatório</mat-error>
+          } @else if (form.controls.cpf.hasError('cpfInvalid')) {
+            <mat-error>CPF inválido</mat-error>
+          }
         }
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="field-phone">
         <mat-label>Número do telefone</mat-label>
-        <input matInput formControlName="phone" type="tel" />
-        @if (form.controls.phone.touched && form.controls.phone.hasError('required')) {
-          <mat-error>Telefone é obrigatório</mat-error>
+        <input
+          matInput
+          formControlName="phone"
+          [mask]="phoneMask"
+          [dropSpecialCharacters]="false"
+          [placeholder]="phoneMask.replace(/0/g, '0')"
+        />
+        @if (form.controls.phone.touched) {
+          @if (form.controls.phone.hasError('required')) {
+            <mat-error>Telefone é obrigatório</mat-error>
+          } @else if (form.controls.phone.hasError('phoneInvalid')) {
+            <mat-error>Formato inválido</mat-error>
+          }
         }
       </mat-form-field>
 

@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Giana Sandrini",
       "email": "giana@attoratus.com.br",
-      "cpf": "123.456.789-00",
+      "cpf": "529.982.247-25",
       "phone": "(11) 99999-0001",
       "phoneType": "mobile"
     },
@@ -12,7 +12,7 @@
       "id": "2",
       "name": "Carlos Mendes",
       "email": "carlos.mendes@empresa.com.br",
-      "cpf": "987.654.321-11",
+      "cpf": "111.444.777-35",
       "phone": "(21) 98888-0002",
       "phoneType": "mobile"
     },
@@ -20,7 +20,7 @@
       "id": "3",
       "name": "Fernanda Oliveira",
       "email": "fernanda.oliveira@email.com",
-      "cpf": "456.789.123-22",
+      "cpf": "123.456.789-09",
       "phone": "(31) 3333-0003",
       "phoneType": "landline"
     },
@@ -28,7 +28,7 @@
       "id": "4",
       "name": "Rafael Souza",
       "email": "rafael.souza@teste.com.br",
-      "cpf": "321.654.987-33",
+      "cpf": "234.567.891-73",
       "phone": "(41) 97777-0004",
       "phoneType": "mobile"
     },
@@ -36,15 +36,15 @@
       "id": "5",
       "name": "Mariana Costa",
       "email": "mariana.costa@dominio.com",
-      "cpf": "654.321.098-44",
+      "cpf": "345.678.912-28",
       "phone": "(51) 96666-0005",
       "phoneType": "mobile"
     },
     {
       "id": "6",
-      "name": "Erick dias",
+      "name": "Bruno Almeida",
       "email": "bruno.almeida@corp.com.br",
-      "cpf": "789.012.345-55",
+      "cpf": "451.890.234-35",
       "phone": "(61) 3222-0006",
       "phoneType": "landline"
     }
