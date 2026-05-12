@@ -133,12 +133,12 @@ npm run build
 
 ### etapa 1:
 
-construição as telas conforme no documento
+Construição as telas conforme no documento
 
 ### etapa 2:
 
-garantir 100% da funionalidade do sistema
+Garantir 100% da funionalidade do sistema
 
 ## etapa 3:
 
-melhorar o ui/ux da telas para alto nivel
+Melhorar o ui/ux da telas para alto nivel
