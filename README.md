@@ -23,11 +23,19 @@ npm install
 
 ## Executando o projeto
 
+O projeto usa **JSON Server** como API mock. É necessário rodar os dois servidores juntos.
+
 ```bash
-npm start
+# Inicia a API mock (porta 3000) + Angular (porta 4200) simultaneamente
+npm run dev
 ```
 
-Acesse [http://localhost:4200](http://localhost:4200)
+Ou separadamente em dois terminais:
+
+```bash
+npm run mock-api   # API: http://localhost:3000
+npm start          # App: http://localhost:4200
+```
 
 ## Testes
 
@@ -59,3 +67,12 @@ src/
 │   └── shared/         # Componentes e pipes reutilizáveis
 └── styles.scss
 ```
+
+# etapas de desenvolvimento
+
+etapa 1
+construir as telas conforme no documento
+etapa 2
+garantir 100% da funionalidade do sistema
+etapa 3
+melhorar o ui/ux da telas para alto nivel
